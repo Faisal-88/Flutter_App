@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tes/nested_json.dart';
+import 'package:flutter_tes/nested_withmodel.dart';
 import 'package:flutter_tes/news_page.dart';
 import 'package:flutter_tes/profile_page.dart';
 
@@ -25,6 +26,21 @@ class _MenuTopTabBarState extends State<MenuTopTabBar>
     Widget build(BuildContext context) {
       return Scaffold(
         appBar: AppBar(
+          actions: [
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                MaterialPageRoute(builder: (_) => const NestedJsonModel()));
+              },
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+              child: Text(
+                "Model",
+                style: TextStyle(color: Colors.white),
+              ),
+              ),
+            )
+          ],
           title: const Text(
             "Web Service",
           style: TextStyle(color: Colors.white),

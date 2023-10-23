@@ -15,7 +15,8 @@ class ImageNetwork extends StatelessWidget {
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Center(
-        child: Image.network("https://media.istockphoto.com/id/166144434/id/foto/kipas-lipat-jepang.jpg?s=1024x1024&w=is&k=20&c=5E2ropzvcz5c5dv6FRV8bE5C5qB-8j8xz9rpvhtwn3M="),
+        child: Image.network(
+          "https://media.istockphoto.com/id/166144434/id/foto/kipas-lipat-jepang.jpg?s=1024x1024&w=is&k=20&c=5E2ropzvcz5c5dv6FRV8bE5C5qB-8j8xz9rpvhtwn3M="),
       ),
       ); 
     }
