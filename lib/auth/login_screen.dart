@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tes/menu_top_tabbar.dart';
 import 'package:flutter_tes/response/res_login.dart';
 import 'package:flutter_tes/api/api.dart';
+import 'package:flutter_tes/session/session_manager.dart';
 import 'package:http/http.dart' as http;
 
 
@@ -30,6 +31,7 @@ class  _LoginScreenState extends State <LoginScreen> {
         ResLogin data = resLoginFromJson(res.body);
         if(data.value == 1) {
         setState(() {
+          SessionManager.saveSession(data.value ?? 0, data.id ?? "");
         isLogin = false;
         Navigator.pushAndRemoveUntil(
           context,

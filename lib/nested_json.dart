@@ -17,7 +17,7 @@ class _NestedJsonState extends State<NestedJson> {
   Future<List?> getUsers() async {
     try {
       setState(() {
-        isLoading = true;
+        isLoading = false;
       });
       htpp.Response res = await htpp
       .get(Uri.parse("https://jsonplaceholder.typicode.com/users"));

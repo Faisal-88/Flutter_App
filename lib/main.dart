@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tes/auth/login_screen.dart';
+import 'package:flutter_tes/auth/register_screen.dart';
+import 'package:flutter_tes/auth/splash_screen.dart';
 // import 'package:flutter_tes/custome.grid.dart';
 import 'package:flutter_tes/image_assets.dart';
-import 'package:flutter_tes/menu_top_tabbar.dart';
 // import 'package:flutter_tes/menu_top_tabbar.dart';
 // import 'package:flutter_tes/menu_tab_bar.dart';
 // import 'package:flutter_tes/register_form.dart';
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MenuTopTabBar());
+      home: const SplashScreen());
   }
 }
 
