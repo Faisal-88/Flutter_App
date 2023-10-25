@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tes/auth/login_screen.dart';
 import 'package:flutter_tes/menu_top_tabbar.dart';
@@ -16,7 +17,10 @@ class _SplashScreenState extends State<SplashScreen> {
  Future cekSession() async  {
     await Future.delayed(const Duration(seconds: 4), (){
       sessionManager.loadSession().then((value) {
-        if (value != 0) {
+        if (kDebugMode) {
+          print("value $value");
+        }
+        if (value != null) {
           Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(builder: (_) => const MenuTopTabBar()),
