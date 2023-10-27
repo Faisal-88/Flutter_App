@@ -33,12 +33,23 @@ class _NewsPageState extends State<NewsPage> {
   TextEditingController cari = TextEditingController();
   bool isSearch = true;
 
-  _NewsPageState() {
-    cari.addListener(() {
-      setState(() {
-        isSearch = cari.text.isNotEmpty;
-      });
-    });
+    _NewsPageState() {
+    cari.addListener(() { 
+      if (cari.text.isEmpty) {
+        setState(
+          () {
+            isSearch = true;
+        },
+        );
+      } else {
+        setState(
+          () {
+            isSearch = false;
+        },
+        );
+      }
+    },
+    );
   }
 
   @override
@@ -66,8 +77,7 @@ class _NewsPageState extends State<NewsPage> {
                 ),
               ),
               isSearch
-                  ? result() // Show search results
-                  : Expanded(
+                  ? Expanded(
                       child: ListView.builder(
                         itemCount: snapshot.data?.length,
                         itemBuilder: (context, index) {
@@ -86,7 +96,8 @@ class _NewsPageState extends State<NewsPage> {
                           );
                         },
                       ),
-                    ),
+                    )
+                    : performSearch(snapshot.data),
             ],
           );
         } else if (snapshot.hasError) {
@@ -104,16 +115,34 @@ class _NewsPageState extends State<NewsPage> {
     );
   }
 
+ Widget performSearch(List<Berita>? data) {
+    filterList = [];
+    for(int i = 0; i< data!.length; i++) {
+      var item = data[i];
+      if (item.judul?.toLowerCase().contains(cari.text.toLowerCase()) == true) {
+        filterList.add(item);
+      }
+    }
+    return result();
+  }
+
   Widget result() {
     return Expanded(
       child: ListView.builder(
         itemCount: filterList.length,
         itemBuilder: (context, index) {
           Berita? data = filterList[index];
-          return Card(
-            child: ListTile(
-              title: Text(data.judul ?? ''),
-            ),
+          return Column(
+            children: [
+              Image.network(
+                "${Api.imageUrl}${data.gambarBerita}",
+                height: 250,
+                fit: BoxFit.fitWidth,
+              ),
+              ListTile(
+                title: Text(data.judul ?? ''),
+              )
+            ],
           );
         },
       ),
