@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tes/auth/login_screen.dart';
-import 'package:flutter_tes/auth/register_screen.dart';
+// import 'package:flutter_tes/auth/login_screen.dart';
+// import 'package:flutter_tes/auth/register_screen.dart';
 import 'package:flutter_tes/auth/splash_screen.dart';
 // import 'package:flutter_tes/custome.grid.dart';
 import 'package:flutter_tes/image_assets.dart';

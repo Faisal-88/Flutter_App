@@ -111,17 +111,15 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                       );
                       
-                      if (updatedData != null) {
-                        String? newFullname = updatedData['fullname'];
-                        String? newUsername = updatedData['username'];                       
-                        updateUser(sessionManager.id!, newFullname!, newUsername!);
+                      String? newFullname = updatedData['fullname'];
+                      String? newUsername = updatedData['username'];                       
+                      updateUser(sessionManager.id!, newFullname!, newUsername!);
 
-                        setState(() {
-                          data.fullname = newFullname;
-                          data.username = newUsername;
-                        });
-                      }
-                    },
+                      setState(() {
+                        data.fullname = newFullname;
+                        data.username = newUsername;
+                      });
+                                        },
                     child: const Text("EDIT"),
                   ),
                 ],
